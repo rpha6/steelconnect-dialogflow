@@ -1,6 +1,6 @@
 {
-  "username" : "Finn",
-  "password" : "Kalapuikot",
+  "username" : "your_username",
+  "password" : "your_password",
   "realm-url" : "monash.riverbed.cc",
-  "org-id" : "org-Monash-d388075e40cf1bfd"
+  "org-id" : "org_id_xxxxx"
 }
