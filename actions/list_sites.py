@@ -4,8 +4,6 @@ from flask import json
 from requests.auth import HTTPBasicAuth
 import requests
 
-org = parameters["organisation"]
-
 def list_sites(api_auth, parameters):
     """
     :param parameters: json parameters from Dialogflow intent
@@ -13,6 +11,10 @@ def list_sites(api_auth, parameters):
     :return: Returns a response to be read out to user
     :rtype: string
     """
+    
+    # Get org name from Entitities
+    org = parameters["organisation"]
+
     # Get all sites and return a response based on the number of sites
     res = api_auth.list_sites()
 
