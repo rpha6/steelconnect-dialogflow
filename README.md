@@ -1,8 +1,6 @@
 # steelconnect-dialogflow
 
-A webhook for handling calls from the SteelConnect DialogFlow Agent (https://dialogflow.com)
-
-Hosted on Google Cloud Platform App Engine at https://steelconnect-dialogflow.appspot.com/
+A webhook for handling SteelConnect API calls using Google Dialogflow (https://dialogflow.com)
 
 ## How to install on Google App Engine
 
