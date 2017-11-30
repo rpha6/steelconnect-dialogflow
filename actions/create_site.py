@@ -19,11 +19,11 @@ def create_site(api_auth, parameters):
         city = parameters["City"]
 
         # in case city consists of multiple words, strip the whitespace(s) as SCM doesn't allow it.
-        city_cleaned = city.replace(" ", "")
+        city_clean = city.replace(" ", "")
         country_code = parameters["Country"]["alpha-2"]
         country_name = parameters["Country"]["name"]
-        name = site_type+"-"+city_cleaned
-
+        name = site_type+"-"+city_clean
+        
     except KeyError as e:
 
         error_string = "Error processing createSite intent. {0}".format(e)
