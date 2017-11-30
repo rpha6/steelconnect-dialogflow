@@ -3,7 +3,7 @@ import logging
 from flask import json
 from actions import create_uplink
 
-def add_site_to_WAN(api_auth, parameters, contexts):
+def add_site_to_wan(api_auth, parameters, contexts):
     """
     :param api_auth: steelconnect api object
     :type api_auth: SteelConnectAPI

@@ -2,7 +2,7 @@ import logging
 
 from flask import json
 
-def create_WAN(api_auth, parameters, contexts):
+def create_wan(api_auth, parameters, contexts):
     """
     :param api_auth: steelconnect api object
     :type api_auth: SteelConnectAPI
@@ -25,7 +25,7 @@ def create_WAN(api_auth, parameters, contexts):
 
         return error_string
 
-    res = api_auth.create_WAN(name)
+    res = api_auth.create_wan(name)
 
     if res.status_code == 200:
         speech = "{} created".format(WAN_type)
