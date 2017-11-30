@@ -6,9 +6,9 @@ def create_WAN(api_auth, parameters, contexts):
     """
     :param api_auth: steelconnect api object
     :type api_auth: SteelConnectAPI
-    :param parameters: json parameters from API.AI intent
+    :param parameters: json parameters from Dialogflow intent
     :type parameters: json
-    :param contexts: json contexts from API.AI intent
+    :param contexts: json contexts from Dialogflow intent
     :type parameters: json
     :return: Returns a response to be read out to user
     :rtype: string

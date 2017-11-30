@@ -6,7 +6,7 @@ def list_sites_followup(api_auth, parameters):
     """
     :param api_auth: steelconnect api object
     :type api_auth: SteelConnectAPI
-    :param parameters: json parameters from API.AI intent
+    :param parameters: json parameters from Dialogflow intent
     :type parameters: json
     :return: Returns a response to be read out to user
     :rtype: string

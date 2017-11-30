@@ -91,7 +91,7 @@ def webhook():
         response = "Error: This feature has not been implemented yet"
         logging.error("Not implemented error action: {} intent: {}".format(action_type, intent_type))
 
-    return format_response(response)                        # Correctly format the text response into json for API.AI to read out to the user
+    return format_response(response)                        # Correctly format the text response into json for Dialogflow to read out to the user
 
 
 def format_response(speech):

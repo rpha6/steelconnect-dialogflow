@@ -9,7 +9,7 @@ def create_site(api_auth, parameters):
     """
     :param api_auth: steelconnect api object
     :type api_auth: SteelConnectAPI
-    :param parameters: json parameters from API.AI intent
+    :param parameters: json parameters from Dialogflow intent
     :type parameters: json
     :return: Returns a response to be read out to user
     :rtype: string
@@ -19,7 +19,7 @@ def create_site(api_auth, parameters):
         city = parameters["City"]
         country_code = parameters["Country"]["alpha-2"]
         country_name = parameters["Country"]["name"]
-        name = city+"_"+site_type
+        name = site_type+"-"+city
 
     except KeyError as e:
 

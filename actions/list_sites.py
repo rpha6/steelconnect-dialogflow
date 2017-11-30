@@ -4,11 +4,11 @@ from flask import json
 from requests.auth import HTTPBasicAuth
 import requests
 
-org = "Monash"
+org = parameters["organisation"]
 
 def list_sites(api_auth, parameters):
     """
-    :param parameters: json parameters from API.AI intent
+    :param parameters: json parameters from Dialogflow intent
     :type parameters: json
     :return: Returns a response to be read out to user
     :rtype: string

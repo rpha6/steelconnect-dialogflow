@@ -7,7 +7,7 @@ import requests
 
 def clear_sites(parameters):
     """
-    :param parameters: json parameters from API.AI intent
+    :param parameters: json parameters from Dialogflow intent
     :type parameters: json
     :return: Returns a response to be read out to user (Successful or Failure)
     :rtype: string
