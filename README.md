@@ -1,10 +1,9 @@
-# apiai_webhook
+# steelconnect-dialogflow
 [![Build Status](https://travis-ci.com/finnhartshorn/apiai_webhook.svg?token=n8h3qqFcVcWaMV7ck3Aq&branch=master)](https://travis-ci.com/finnhartshorn/apiai_webhook)
 
-A Webhook for handling calls from the SteelConnect API.AI Agent
+A webhook for handling calls from the SteelConnect DialogFlow Agent
 
-Hosted on Google Cloud Platform App Engine at https://steelconnect-api-ai.appspot.com/
-
+Hosted on Google Cloud Platform App Engine at https://steelconnect-dialogflow.appspot.com/
 
 ## How to install on Google App Engine
 
@@ -26,16 +25,13 @@ Clone this project using 'git clone https://github.com/finnhartshorn/apiai_webho
 Use this link https://github.com/finnhartshorn/apiai_webhook/archive/master.zip
 
 ### Deploying
-Fill out 'default-auth.json' with the details of your test account and organisation
+Fill out 'default-auth.json' with the details of your SCM account and organisation.
+To deploy the app open Google Cloud SDK Shell/terminal switch to the apps directory via 'cd /path/to/steelconnect-dialogflow/' and run 'gcloud app deploy'
 
-To deploy the app open Google Cloud SDK Shell/terminal switch to the apps directory via 'cd /path/to/apiai_webhook/' and run 'gcloud app deploy'
-
-In API-AI under fullfillment enable the webhook and use 'https://your-project-id.appspot.com/webhook/' as the url.
-
-You can now use API-AI to the test out the intents on your realm and organisation.
-
-### Importing the Agent into API.AI
-
-Click the settings icon next to your agents name
+### Using Dialogflow
+Click the settings icon next to your agent's name.
 Click 'Export and Import' and then select 'Restore from Zip'
-Upload the 'SteelConnect-API-AI.zip' file from the repository.
+Upload the 'SteelConnect-Dialogflow.zip' file from the repository.
+Last step is to enable the webhook under Fullfillment and use 'https://your-project-id.appspot.com/webhook/' as the url.
+
+You can now use Dialogflow to the test out the intents on your realm and organisation.
