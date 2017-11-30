@@ -55,7 +55,7 @@ def create_uplink(api_auth, parameters):
     elif res.status_code == 500:
         speech = "Error: Could not create uplink"
     else:
-        speech = "Error: Could not connect to Steelconnect"
+        speech = "Error: Could not connect to SteelConnect"
 
     logging.debug(speech)
     print(speech)

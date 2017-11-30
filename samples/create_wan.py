@@ -50,5 +50,5 @@ denver_shop_wan_400_speech_response = "Invalid parameters: Attribute 'name' must
 denver_shop_wan_400_api_response = {"error": {"message": "Attribute 'name' must be unique", "code": 400}}
 denver_shop_wan_500_speech_response = "Error: Could not create wan"
 denver_shop_wan_500_api_response = json.dumps({"error": {"message": "Error creating site", "code": 500}})
-denver_shop_wan_404_speech_response = "Error: Could not connect to Steelconnect"
+denver_shop_wan_404_speech_response = "Error: Could not connect to SteelConnect"
 

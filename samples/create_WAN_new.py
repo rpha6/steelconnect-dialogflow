@@ -42,7 +42,7 @@ create_mpls_wan = {
 }
 
 mpls_success_speech_response = "MPLS created"
-mpls_404 = "Error: Could not connect to Steelconnect"
+mpls_404 = "Error: Could not connect to SteelConnect"
 mpls_400_api_response = {"error": {"message": "Attribute 'name' must be unique", "code": 400}}
 mpls_400_expected = "Invalid parameters: Attribute 'name' must be unique"
 mpls_500_api_response = json.dumps({"error": {"message": "Failed to create wan", "code": 500}})

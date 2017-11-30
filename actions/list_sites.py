@@ -32,7 +32,7 @@ def list_sites(api_auth, parameters):
         else:
             speech = "Unknown error occurred when retrieving sites"
     else:
-        speech = "Error: Could not connect to Steelconnect"
+        speech = "Error: Could not connect to SteelConnect"
 
     logging.debug(speech)
 

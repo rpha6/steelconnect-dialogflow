@@ -48,4 +48,4 @@ case1_success_1_site = "There is one site in the Monash organisation, it is call
 case1_success_2_sites = "There are 2 sites in the Monash organisation, would you like to list all of them?"
 case1_success_5_sites = "There are 5 sites in the Monash organisation, would you like to list all of them?"
 
-case1_404 = "Error: Could not connect to Steelconnect"
+case1_404 = "Error: Could not connect to SteelConnect"

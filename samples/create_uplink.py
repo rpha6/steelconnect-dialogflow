@@ -73,4 +73,4 @@ hahawan_invalid_wan_400_speech_response = "Invalid parameters: Invalid param: wa
 hahawan_invalid_wan_400_api_response = {"error": {"message": "Invalid param: wan", "code": 400}}
 melbourne_shop_500_speech_response = "Error: Could not create uplink"
 melbourne_shop_500_api_response = json.dumps({"error": {"message": "Error creating uplink", "code": 500}})
-melbourne_shop_404_speech_response = "Error: Could not connect to Steelconnect"
+melbourne_shop_404_speech_response = "Error: Could not connect to SteelConnect"

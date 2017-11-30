@@ -29,7 +29,7 @@ def clear_sites(parameters):
         elif res.status_code == 500:
             speech = "Error: Could not find sites"
         else:
-            speech = "Error: Could not connect to Steelconnect"
+            speech = "Error: Could not connect to SteelConnect"
 
         logging.debug(speech)
 

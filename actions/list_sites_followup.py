@@ -67,7 +67,7 @@ def list_sites_followup(api_auth, parameters):
         speech = speech[2:] + "."
 
     else:
-        speech = "Error: Could not connect to Steelconnect"
+        speech = "Error: Could not connect to SteelConnect"
 
     logging.debug(speech)
 

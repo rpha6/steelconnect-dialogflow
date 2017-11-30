@@ -29,7 +29,8 @@ Use this link https://github.com/Bakermat/steelconnect-dialogflow/archive/master
 ### Using Dialogflow
 * Click the settings icon next to your agent's name.
 * Click 'Export and Import' and then select 'Restore from Zip'
-* Upload the 'SteelConnect-Dialogflow-Agent.zip' file from the repository.
-* Last step is to enable the webhook under Fullfillment and use 'https://your-project-id.appspot.com/webhook/' as the url.
+* Upload the 'SteelConnect-Dialogflow-Agent.zip' file from the repository to get started.
+* Enable the webhook under Fullfillment and use 'https://your-project-id.appspot.com/webhook/' as the url.
+* Lastly, change the organisation value under Intents -> ListSites to your own organisation name as this is used in some of the responses.
 
-You can now use Dialogflow to the test out the intents on your realm and organisation.
+You can now use Dialogflow to the test out the intents on your realm and organisation. Have a look at the Dialogflow intents what you can do, you can add/delete to suit your needs.

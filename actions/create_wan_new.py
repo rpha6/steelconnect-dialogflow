@@ -34,7 +34,7 @@ def create_wan(api_auth, parameters, contexts):
     elif res.status_code == 500:
         speech = "Error: Could not create WAN"
     else:
-        speech = "Error: Could not connect to Steelconnect"
+        speech = "Error: Could not connect to SteelConnect"
 
     logging.debug(speech)
 
