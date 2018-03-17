@@ -1,0 +1,5 @@
+# Compiled Python bytecode
+*.pyc
+
+# Vim swapfiles
+*.swp
