@@ -16,7 +16,7 @@ in stdenv.mkDerivation {
     openssl
   ];
 
-  PYTHONPATH = (builtins.getEnv "HOME") + "/.local/lib/python2.7/site-packages/";
+  PYTHONPATH = ".:" + (builtins.getEnv "HOME") + "/.local/lib/python2.7/site-packages/";
 
   shellHook = ''
     export LD_LIBRARY_PATH="${libPath}:$LD_LIBRARY_PATH"
