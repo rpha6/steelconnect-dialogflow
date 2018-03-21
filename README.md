@@ -2,6 +2,13 @@
 
 A webhook for handling SteelConnect API calls using Google Dialogflow (https://dialogflow.com)
 
+## How to set up for local development
+* Clone the repo.
+* Install Python 2.
+* Install and configure the Google Cloud SDK by following the instructions here - https://cloud.google.com/sdk/docs/. On Windows this will install the Google Cloud SDK Shell which can be used to deploy the app, on OSX and Linux simply use the terminal.
+* Install the app engine python extension by entering 'gcloud components install app-engine-python' into the Google Cloud SDK Shell if on Windows or the terminal for OSX and Linux
+* Run the app from the repo with `dev_appserver.py app.yaml`.
+
 ## How to install on Google App Engine
 
 ### Creating a Google App Engine project
@@ -14,11 +21,13 @@ A webhook for handling SteelConnect API calls using Google Dialogflow (https://d
 * Install the app engine python extension by entering 'gcloud components install app-engine-python' into the Google Cloud SDK Shell if on Windows or the terminal for OSX and Linux
 
 You can either clone the repository using git or download the zip file.
+
 ### Cloning using Git
 * If git is not already installed get it here https://git-scm.com/.
 * Clone this project using 'git clone https://github.com/Bakermat/steelconnect-dialogflow.git'
+
 ### Downloading the Zip
-Use this link https://github.com/Bakermat/steelconnect-dialogflow/archive/master.zip.
+Use this link: https://github.com/Bakermat/steelconnect-dialogflow/archive/master.zip.
 
 ### Deploying
 * Fill out 'default-auth.json' with the details of your SCM account and organisation.
