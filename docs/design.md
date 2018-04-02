@@ -9,7 +9,7 @@ A high level overview of what this application does:
 - This app then interacts with the SteelConnect REST API and carries out the specified action.
 - This app then sends a response back to DialogFlow with what to say back to the user.
 
-The application uses the [Flask framework](http://flask.pocoo.org/) to host a webserver. It listens for POST requests from Dialogflow on the `/webhook/` route - the handler function is `app.webhook()`. It uses the `requests` library to make requests to the SteelConnect REST API.A
+The application uses the [Flask framework](http://flask.pocoo.org/) to host a webserver. It listens for POST requests from Dialogflow on the `/webhook/` route - the handler function is `app.webhook()`. It uses the `requests` library to make requests to the SteelConnect REST API.
 
 ## SteelConnectAPI
 This class wraps the SteelConnect REST API, and lives in `actions/api.py`. Each class instance is given API auth credentials, the base URL for the SteelConnect Manager instance config API, and an organisation ID (which is used as the implicit target organisation for all(?) actions). This class makes calls to the API via the Python requests library.
