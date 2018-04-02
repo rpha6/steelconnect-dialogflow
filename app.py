@@ -14,6 +14,7 @@ from actions.list_sites import list_sites
 from actions.list_sites_followup import list_sites_followup
 from actions.list_wans import list_wans
 from actions.create_wan import create_wan
+from actions.delete_wan import delete_wan
 from actions.add_site_to_wan import add_site_to_wan
 from actions.add_sites_to_wan import add_sites_to_wan
 from actions.clear_sites import clear_sites
@@ -74,6 +75,8 @@ def webhook():
         response = list_wans(app.config["SC_API"], parameters, contexts)
     elif action_type == "CreateWAN":
         response = create_wan(app.config["SC_API"], parameters, contexts)
+    elif action_type == "DeleteWAN":
+        response = delete_wan(app.config["SC_API"], parameters, contexts)
     elif action_type == "AddSiteToWAN":
         response = add_site_to_wan(app.config["SC_API"], parameters, contexts)
     elif action_type == "AddSitesToWAN":

@@ -19,13 +19,8 @@ def list_wans(api_auth, parameters, contexts):
     if res.status_code == 200:
         data = res.json()["items"]
 
-        speech = "All the WANs in your organisation:"
+        speech = "All the WANs in your organisation:" + format_wan_list(data)
 
-        for wan in data:
-            if wan["longname"] is not None:
-                speech += "\n - " + str(wan["name"]) + " (" + wan["longname"] + ")"
-            else:
-                speech += "\n - " + str(wan["name"])
     else:
         speech = "Error: Could not connect to SteelConnect"
 
@@ -33,3 +28,13 @@ def list_wans(api_auth, parameters, contexts):
 
     return speech
 
+def format_wan_list(items):
+    s = ""
+
+    for wan in items:
+        if wan["longname"] is not None:
+            s += "\n - " + str(wan["name"]) + " (" + wan["longname"] + ")"
+        else:
+            s += "\n - " + str(wan["name"])
+
+    return s
