@@ -23,4 +23,4 @@ In the webhook handler in `app.py`, after taking the necessary data out of the D
 ## Diagram
 Here's a diagram that summarises the rest of this document. Each link between components has a note of the form "<down-action> / <up-action>", where the down-action is what the thing on the top sends to the one below, and vice versa for the up-action.
 
-![Simple diagram of the system](diagram.png) 
+![Simple diagram of the system](design.png) 
