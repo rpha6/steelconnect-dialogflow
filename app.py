@@ -12,6 +12,7 @@ from actions.create_uplink import create_uplink
 from actions.create_site import create_site
 from actions.list_sites import list_sites
 from actions.list_sites_followup import list_sites_followup
+from actions.list_wans import list_wans
 from actions.create_wan import create_wan
 from actions.add_site_to_wan import add_site_to_wan
 from actions.add_sites_to_wan import add_sites_to_wan
@@ -69,6 +70,8 @@ def webhook():
     elif action_type == "ListSites.ListSites-yes":
         parameters["position"] = "all"
         response = list_sites_followup(app.config["SC_API"], None)
+    elif action_type == "ListWANs":
+        response = list_wans(app.config["SC_API"], parameters, contexts)
     elif action_type == "CreateWAN":
         response = create_wan(app.config["SC_API"], parameters, contexts)
     elif action_type == "AddSiteToWAN":
