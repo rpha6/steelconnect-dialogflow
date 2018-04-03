@@ -1,6 +1,7 @@
 import logging
 
 from flask import json
+from actions.util import *
 
 def list_wans(api_auth, parameters, contexts):
     """
@@ -27,14 +28,3 @@ def list_wans(api_auth, parameters, contexts):
     logging.debug(speech)
 
     return speech
-
-def format_wan_list(items):
-    s = ""
-
-    for wan in items:
-        if wan["longname"] is not None:
-            s += "\n - " + str(wan["name"]) + " (" + wan["longname"] + ")"
-        else:
-            s += "\n - " + str(wan["name"])
-
-    return s

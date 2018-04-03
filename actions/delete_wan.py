@@ -1,7 +1,7 @@
 import logging
 
 from flask import json
-from actions.list_wans import format_wan_list
+from actions.util import *
 
 def delete_wan(api_auth, parameters, contexts):
     """
@@ -14,26 +14,14 @@ def delete_wan(api_auth, parameters, contexts):
     """
 
     wan_name = parameters["WANName"]
-    logging.debug("Attempting to delete WAN named: " + wan_name)
     wan_id = None
 
-    # Make sure this WAN exists, and get its ID if it does.
-    res = api_auth.list_wans()
-    data = res.json()["items"]
+    logging.debug("Attempting to delete WAN named: " + wan_name)
 
-    if res.status_code == 200:
-        for wan in data:
-            if wan["name"] == wan_name:
-                wan_id = wan["id"]
-                break
-
-        if wan_id is None:
-            return "Error: The WAN '{}' does not exist. Valid WANs (use the name not in brackets):" + format_wan_list(data)
-    else:
-        return "Error: Failed to get the list of WANs"
-
-    logging.debug("The WAN ID for '{}' is '{}'".format(wan_name, wan_id))
-
+    try:
+        wan_id = get_wan_id_by_name(api_auth, wan_name)
+    except APIError as e:
+        return str(e)
 
     # Now delete the WAN!
     res = api_auth.delete_wan(wan_id)

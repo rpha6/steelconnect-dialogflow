@@ -1,6 +1,7 @@
 import logging
 
 from flask import json
+from actions.util import *
 
 def rename_wan(api_auth, parameters, contexts):
     """
@@ -19,14 +20,22 @@ def rename_wan(api_auth, parameters, contexts):
     original_name = parameters["OriginalName"]
     new_name = parameters["NewName"]
 
-    res = api_auth.update_wan()
+    try:
+        wan_id = get_wan_id_by_name(api_auth, original_name)
+    except APIError as e:
+        return str(e)
+
+    new_data = {
+        "name": new_name
+    }
+    res = api_auth.update_wan(wan_id, new_data)
 
     if res.status_code == 200:
-        speech = "{} created".format(WAN_type)
+        speech = "Renamed '{}' to '{}'".format(original_name, new_name)
     elif res.status_code == 400:
         speech = "Invalid parameters: {}".format(res.json()["error"]["message"])
     elif res.status_code == 500:
-        speech = "Error: Could not create WAN"
+        speech = "Error: Could not rename WAN"
     else:
         speech = "Error: Could not connect to SteelConnect"
 

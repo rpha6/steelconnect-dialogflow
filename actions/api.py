@@ -85,10 +85,14 @@ class SteelConnectAPI:
         data = {"name": name}
         data = self.format_data(data)
         return requests.post(url, data=data, auth=self.auth)
+    
+    def update_wan(self, wan_id, new_data):
+        url = self.bare_url() + "wan/" + wan_id
+        data = self.format_data(new_data)
+        return requests.put(url, data=data, auth=self.auth)
 
     def delete_wan(self, wan_id):
         url = self.bare_url() + "wan/" + wan_id
-        logging.debug(url)
         data = {}
         data = self.format_data(data)
         return requests.delete(url, data=data, auth=self.auth)
