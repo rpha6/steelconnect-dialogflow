@@ -20,7 +20,6 @@ def delete_wan(api_auth, parameters, contexts):
     # Make sure this WAN exists, and get its ID if it does.
     res = api_auth.list_wans()
     data = res.json()["items"]
-    logging.debug("ASDSA")
 
     if res.status_code == 200:
         for wan in data:
