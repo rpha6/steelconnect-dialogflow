@@ -95,7 +95,7 @@ def webhook():
 
     # elif action_type == "SomeOtherAction"            # Use elif to add extra functionality
     else:
-        response = "Error: This feature has not been implemented yet: " + action_type
+        response = "Error: This feature has not been implemented yet"
         logging.error("Not implemented error action: {} intent: {}".format(action_type, intent_type))
 
     return format_response(response)                        # Correctly format the text response into json for Dialogflow to read out to the user
