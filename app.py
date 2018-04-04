@@ -23,7 +23,6 @@ from actions.create_zone import create_zone
 from actions.create_appliance import create_appliance
 
 app = Flask(__name__)
-app.debug = True
 
 # Setup up api authentication
 try:
