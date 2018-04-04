@@ -1,0 +1,44 @@
+' The diagram accompanying `design.md`.
+' This is a PlantUML file: http://plantuml.com
+
+@startuml
+
+' ---
+
+cloud {
+    [Dialogflow]
+}
+
+package "Application" {
+    [Flask]
+    [webhook()]
+
+    package "actions" {
+        [...]
+        [CreateSite]
+        [CreateWAN]
+    }
+
+    [SteelConnectAPI]
+    [Requests]
+}
+
+cloud {
+    [SteelConnect REST API]
+}
+
+' ---
+
+[Dialogflow] <--> [Flask] : Makes a POST request / Sends a HTTP response
+[Flask] <--> [webhook()] : Calls "/webhook/" handler / Returns JSON response
+
+[webhook()] <--> [CreateWAN] : Calls action function / Returns response text
+
+[CreateWAN] <--> [SteelConnectAPI] : Calls an API wrapper function / Returns the results of the API call
+
+[SteelConnectAPI] <--> [Requests] : Makes a GET/POST request / Returns the HTTP response
+[Requests] <--> [SteelConnect REST API] : Sends the HTTP GET/POST/etc. / Sends a HTTP response
+
+' ---
+
+@enduml
