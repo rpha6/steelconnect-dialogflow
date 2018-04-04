@@ -44,6 +44,10 @@ class SteelConnectAPI:
         url = self.org_url() + "sites"
         return requests.get(url, auth=self.auth)
 
+    def list_uplinks(self):
+        url = self.org_url() + "uplinks"
+        return requests.get(url, auth=self.auth)
+
     def list_wans(self):
         url = self.org_url() + "wans"
         return requests.get(url, auth=self.auth)

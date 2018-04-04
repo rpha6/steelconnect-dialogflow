@@ -8,6 +8,8 @@ import logging
 
 from actions.api import SteelConnectAPI
 
+from actions.list_uplinks import list_uplinks
+from actions.list_uplinks_followup import list_uplinks_followup
 from actions.create_uplink import create_uplink
 from actions.create_site import create_site
 from actions.list_sites import list_sites
@@ -70,6 +72,11 @@ def webhook():
     elif action_type == "ListSites.ListSites-yes":
         parameters["position"] = "all"
         response = list_sites_followup(app.config["SC_API"], None)
+    elif action_type == "ListUplinks":
+        response = list_uplinks(app.config["SC_API"], parameters)
+    elif action_type == "ListUplinks.ListUplinks-yes":
+        parameters["position"] = "all"
+        response = list_uplinks_followup(app.config["SC_API"], None)
     elif action_type == "CreateWan":
         response = create_wan(parameters)
     elif action_type == "CreateWAN":
@@ -88,7 +95,7 @@ def webhook():
 
     # elif action_type == "SomeOtherAction"            # Use elif to add extra functionality
     else:
-        response = "Error: This feature has not been implemented yet"
+        response = "Error: This feature has not been implemented yet: " + action_type
         logging.error("Not implemented error action: {} intent: {}".format(action_type, intent_type))
 
     return format_response(response)                        # Correctly format the text response into json for Dialogflow to read out to the user
