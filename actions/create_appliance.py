@@ -3,7 +3,6 @@ import logging
 from flask import json
 from requests.auth import HTTPBasicAuth
 import requests
-# import app
 
 
 def create_appliance(api_auth, parameters):
@@ -16,7 +15,7 @@ def create_appliance(api_auth, parameters):
     :rtype: string
     """
     try:
-        city = parameters["City"]
+        city = parameters["City"].replace(" ", "")  # .replace() is for locations where there are spaces. E.g. Kuala Lumpur
         site_type = parameters["SiteTypes"]
         model = parameters["Model"]
 
@@ -29,14 +28,11 @@ def create_appliance(api_auth, parameters):
     data_sites = api_auth.list_sites().json()
     site = ""
     for item in data_sites["items"]:
-        if city + site_type in item["id"]:
+        if "site-" + site_type + city + "-" in item["id"]:
             site = item["id"]
             break
 
-    # nodes = api_auth.list_nodes().json()
-    # print(nodes)
     if site != "":
-
         # Call create_appliance in SteelConnectAPI
         res = api_auth.create_appliance(site=site, model=model)
 
@@ -56,12 +52,6 @@ def create_appliance(api_auth, parameters):
         speech = "Invalid site {}, {}".format(city, site_type)
     return speech
 
-# auth = app.SteelConnectAPI("Anthony", "Anthony", "monash.riverbed.cc", "org-Monash-d388075e40cf1bfd")
-# param = {
-#     "City": "Bendigo",
-#     "SiteTypes": "shop",
-#     "Model": "panda"
-# }
-# create_appliance(api_auth=auth, parameters=param)
 
+# Dialogue To Trigger Appliance Creation: Create a panda shadow appliance for Perth DC
 # List of models: raccoon, koala, ursus, panda, ewok, grizzly, panther, cx570, cx770, cx3070, aardvark, sloth, kodiak
