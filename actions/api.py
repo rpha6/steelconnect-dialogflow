@@ -52,7 +52,7 @@ class SteelConnectAPI:
         url = self.org_url() + "zones"
         return requests.get(url, auth=self.auth)
 
-    def list_nodes(self):
+    def list_appliances(self):
         url = self.org_url() + "nodes"
         return requests.get(url, auth=self.auth)
 
