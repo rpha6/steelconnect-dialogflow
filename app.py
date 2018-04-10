@@ -10,6 +10,8 @@ from actions.api import SteelConnectAPI
 
 from actions.create_uplink import create_uplink
 from actions.create_site import create_site
+from actions.list_appliances import list_appliances
+from actions.list_appliances_followup import list_appliances_followup
 from actions.list_sites import list_sites
 from actions.list_sites_followup import list_sites_followup
 from actions.create_wan import create_wan
@@ -63,6 +65,13 @@ def webhook():
         response = create_site(app.config["SC_API"], parameters)
     elif action_type == "CreateUplink":
         response = create_uplink(app.config["SC_API"],parameters)
+    elif action_type == "ListAppliances":
+        response = list_appliances(app.config["SC_API"], parameters)
+    elif action_type == "ListAppliaces.ListAppliances-custom":
+        response = list_appliances_followup(app.config["SC_API"], req["result"]["contexts"][0]["parameters"])
+    elif action_type == "ListAppliances.ListAppliances-yes":
+        parameters["position"] = "all"
+        response = list_appliances_followup(app.config["SC_API"], None)
     elif action_type == "ListSites":
         response = list_sites(app.config["SC_API"], parameters)
     elif action_type == "ListSites.ListSites-custom":
@@ -70,8 +79,6 @@ def webhook():
     elif action_type == "ListSites.ListSites-yes":
         parameters["position"] = "all"
         response = list_sites_followup(app.config["SC_API"], None)
-    elif action_type == "CreateWan":
-        response = create_wan(parameters)
     elif action_type == "CreateWAN":
         response = create_wan(app.config["SC_API"], parameters, contexts)
     elif action_type == "AddSiteToWAN":
