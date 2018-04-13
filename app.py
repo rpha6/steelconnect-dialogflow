@@ -21,6 +21,7 @@ from actions.add_sites_to_wan import add_sites_to_wan
 from actions.clear_sites import clear_sites
 from actions.create_zone import create_zone
 from actions.create_appliance import create_appliance
+from actions.delete_appliances import delete_appliance
 
 app = Flask(__name__)
 
@@ -91,6 +92,8 @@ def webhook():
         response = create_zone(app.config["SC_API"], parameters)
     elif action_type == "CreateAppliance":
         response = create_appliance(app.config["SC_API"], parameters)
+    elif action_type == "DeleteAppliance":
+        response = delete_appliance(app.config["SC_API"], parameters, contexts)
 
 
     # elif action_type == "SomeOtherAction"            # Use elif to add extra functionality
