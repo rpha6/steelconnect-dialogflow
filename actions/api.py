@@ -36,9 +36,11 @@ class SteelConnectAPI:
                 context_list.append(context)
         return context_list
 
+    def bare_url(self):
+        return SteelConnectAPI.api_url.format(self.base_url)
 
     def org_url(self):
-        return SteelConnectAPI.api_url.format(self.base_url) + "org/{}/".format(self.org_id)
+        return self.bare_url() + "org/{}/".format(self.org_id)
 
     def list_sites(self):
         url = self.org_url() + "sites"
@@ -99,3 +101,9 @@ class SteelConnectAPI:
         }
         data = self.format_data(data)
         return requests.post(url, data=data, auth=self.auth)
+    
+    def delete_appliance(self, appliance_id):
+        url = self.bare_url() + "node/" + appliance_id
+        data = {}
+        data = self.format_data(data)
+        return requests.delete(url, data=data, auth=self.auth)
