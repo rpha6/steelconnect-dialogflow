@@ -19,6 +19,7 @@ from actions.add_sites_to_wan import add_sites_to_wan
 from actions.clear_sites import clear_sites
 from actions.create_zone import create_zone
 from actions.create_appliance import create_appliance
+from actions.rename_site import rename_site
 
 app = Flask(__name__)
 
@@ -69,12 +70,10 @@ def webhook():
         response = list_sites_followup(app.config["SC_API"], req["result"]["contexts"][0]["parameters"])
     elif action_type == "ListSites.ListSites-yes":
         parameters["position"] = "all"
-        response = list_sites_followup(app.config["SC_API"], None)
-    elif action_type == "CreateWan":
-        response = create_wan(parameters)
+        response = list_sites_followup(app.config["SC_API"], parameters)
     elif action_type == "CreateWAN":
         response = create_wan(app.config["SC_API"], parameters, contexts)
-    elif action_type == "AddSiteToWAN":
+    elif action_type == "AddSiteToWAN": 
         response = add_site_to_wan(app.config["SC_API"], parameters, contexts)
     elif action_type == "AddSitesToWAN":
         response = add_sites_to_wan(app.config["SC_API"], parameters, contexts)
@@ -84,6 +83,9 @@ def webhook():
         response = create_zone(app.config["SC_API"], parameters)
     elif action_type == "CreateAppliance":
         response = create_appliance(app.config["SC_API"], parameters)
+    elif action_type == "RenameSite":
+        # parameters["position"] = "all"
+        response = rename_site(app.config["SC_API"], parameters)
 
 
     # elif action_type == "SomeOtherAction"            # Use elif to add extra functionality

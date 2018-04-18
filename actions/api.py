@@ -36,9 +36,11 @@ class SteelConnectAPI:
                 context_list.append(context)
         return context_list
 
+    def bare_url(self):
+        return SteelConnectAPI.api_url.format(self.base_url)
 
     def org_url(self):
-        return SteelConnectAPI.api_url.format(self.base_url) + "org/{}/".format(self.org_id)
+        return self.bare_url() + "org/{}/".format(self.org_id)
 
     def list_sites(self):
         url = self.org_url() + "sites"
@@ -61,6 +63,17 @@ class SteelConnectAPI:
         data = {"name": name, "longname": name, "city": city, "country": country_code}
         data = self.format_data(data)
         return requests.post(url, data=data, auth=self.auth)
+
+    def rename_site(self, siteid, short_name, long_name, city):
+        url = self.bare_url() + "site/" + siteid
+        data = {
+            "name": short_name,
+            "longname": long_name,
+            "city": city
+        }
+        data = self.format_data(data)
+        return requests.put(url, data=data, auth=self.auth)
+        # return requests.get(url, auth=self.auth)
 
     def create_uplink(self, site, uplink, wan):
         url = self.org_url() + "uplinks"
