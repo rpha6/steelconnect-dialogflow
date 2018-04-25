@@ -26,7 +26,8 @@ def rename_wan(api_auth, parameters, contexts):
         return str(e)
 
     new_data = {
-        "name": new_name
+        "name": new_name,
+        "longname": new_name
     }
     res = api_auth.update_wan(wan_id, new_data)
 

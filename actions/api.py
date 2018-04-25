@@ -82,7 +82,10 @@ class SteelConnectAPI:
 
     def create_wan(self, name):
         url = self.org_url() + "wans"
-        data = {"name": name}
+        data = {
+            "name": name,
+            "longname": name
+        }
         data = self.format_data(data)
         return requests.post(url, data=data, auth=self.auth)
     
